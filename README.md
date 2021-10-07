@@ -13,10 +13,10 @@ git clone https://github.com/nicolas-sanch/web3.py-dapp
 cd web3.py-dapp
 ```
 
-2. Test if application are already install in your OS
+2. Test if applications needed are already install in your OS
 ```sh
-python3 -m pip install pip
-python3 -m pip install py-solc-x
+pip --version
+pip show py-solc-x
 node --version
 yarn --version
 ganache-cli --version
