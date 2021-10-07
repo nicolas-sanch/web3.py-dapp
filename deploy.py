@@ -67,7 +67,7 @@ simple_storage = w3.eth.contract(address=tx_receipt.contractAddress, abi=abi)
 print("Initial value of favorite number is: ", simple_storage.functions.retrieve().call(), "\n")
 print("Updating Contract...")
 store_transaction = simple_storage.functions.store(15).buildTransaction(
-    {"chainId": chain_id, "from": my_address, "nonce": nonce + 1 }
+    {"chainId": chain_id, "from": my_address, "nonce": nonce + 1 } # nonce + 1 because nonce value already used
 )
 signed_store_txn = w3.eth.account.sign_transaction(store_transaction, private_key=private_key)
 send_store_tx = w3.eth.send_raw_transaction(signed_store_txn.rawTransaction)
