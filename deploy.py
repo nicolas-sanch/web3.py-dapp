@@ -36,13 +36,21 @@ abi = compiled_sol["contracts"]["SimpleStorage.sol"]["SimpleStorage"]["abi"]
 
 # 4 - Connection to the Ganache local blockchain
 w3 = Web3(Web3.HTTPProvider(os.getenv("HTTPPROVIDER")))
-chain_id = os.getenv("CHAIN_ID")
+chain_id = int(os.getenv("CHAIN_ID"))
 my_address = os.getenv("PUBLIC_KEY")
 private_key = os.getenv("PRIVATE_KEY")
 
 # 5 - Create the contract in python
 SimpleStorage = w3.eth.contract(abi=abi, bytecode=bytecode)
-# Get the latest transaction
+
+# 6 - Deploy the contract
+# 6-a Get the latest transaction
 nonce = w3.eth.getTransactionCount(my_address)
-print(SimpleStorage)
-print(nonce)
+
+# 6-b Build a transaction
+transaction = SimpleStorage.constructor().buildTransaction(
+    {"chainId":chain_id, "from":my_address, "nonce": nonce}
+)
+print(transaction)
+# 6-c Sign a transaction
+# 6-d Send a transaction
