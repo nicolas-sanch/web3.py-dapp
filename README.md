@@ -12,3 +12,8 @@ Here's how to deploy this project
 git clone https://github.com/nicolas-sanch/web3.py-dapp
 cd web3.py-dapp
 ```
+
+2. Compile the solidity contract
+```sh
+python3 deploy.py
+```
