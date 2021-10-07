@@ -3,7 +3,7 @@
 pragma solidity >=0.6.0 <0.9.0;
 
 contract SimpleStorage {
-    uint256 favoriteNumber;
+    uint256 favoriteNumber; // Default 0
 
     // This is a comment!
     struct People {
