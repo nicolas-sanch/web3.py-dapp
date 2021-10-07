@@ -13,7 +13,27 @@ git clone https://github.com/nicolas-sanch/web3.py-dapp
 cd web3.py-dapp
 ```
 
-2. Compile the solidity contract
+2. Test if application are already install in your OS
+```sh
+python3 -m pip install pip
+python3 -m pip install py-solc-x
+node --version
+yarn --version
+ganache-cli --version
+```
+
+3. Start the local test node
+```sh
+ganache-cli
+```
+
+4. Create your .env file with your own values
+```sh
+cp .env.example .env
+vi .env
+```
+
+5. Compile the solidity contract
 ```sh
 python3 deploy.py
 ```
